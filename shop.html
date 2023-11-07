@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Site Web</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('shop.jpg'); /* Remplacez par le chemin de votre image de fond */
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            font-family: Helvetica Neue;
+            background-color: rgba(0, 0, 0, 0.7); /* Couleur de fond de l'en-tête */
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="EuniceShop.png" alt="EuniceShop">
+            <span>EuniceShop</span>
+        </div>
+    </header>
+    <main>
+        <h1>Bienvenue au Shop Eunice</h1>
+    </main>
+    <div class="product-container" id="product-container">
+        <!-- Les produits seront ajoutés dynamiquement ici en utilisant JavaScript -->
+    </div>
+
+    <script>
+        // Simulez des données de parfums (vous devrez obtenir ces données depuis une source externe)
+        const perfumes = [
+            { id: 1, name: "Parfum 1", price: 49.99, image: "1.jpg" },
+            { id: 2, name: "Parfum 2", price: 59.99, image: "for-her-forever.jpg" },
+            { id: 3, name: "Parfum 3", price: 69.99, image: "img_p_3_6_2_2_2_36222-thickbox_default.jpg" },
+            { id: 4, name: "Parfum 4", price: 79.99, image: "les-marques-emblematiques-de-la-parfumerie-pour-femme.jpg" },
+            { id: 5, name: "Parfum 5", price: 89.99, image: "musc-noir.jpg" },
+            { id: 6, name: "Parfum 6", price: 99.99, image: "Parfums-au-jasmin-tout-ce-qu-il-faut-savoir.jpg" },
+            { id: 7, name: "Parfum 7", price: 109.99, image: "plp-parfums-pour-femme.jpg" },
+        ];
+
+        const productContainer = document.getElementById("product-container");
+
+        // Ajoutez chaque parfum à la page
+        perfumes.forEach(perfume => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+
+            const productImage = document.createElement("img");
+            productImage.src = perfume.image;
+            productImage.alt = perfume.name;
+
+            const productName = document.createElement("h2");
+            productName.textContent = perfume.name;
+
+            const productPrice = document.createElement("p");
+            productPrice.textContent = `$${perfume.price}`;
+
+            productDiv.appendChild(productImage);
+            productDiv.appendChild(productName);
+            productDiv.appendChild(productPrice);
+
+            productContainer.appendChild(productDiv);
+        });
+    </script>
+</body>
+</html>
